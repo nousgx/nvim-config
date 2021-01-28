@@ -22,13 +22,13 @@ Configuration for [Neovim](https://github.com/neovim/neovim) documented for easi
 ## Initialization
 1. Install [vim-plug](https://github.com/junegunn/vim-plug).
 1. Copy `init.vim` into the specified config folder for neovim. Create the config directory using the following command through neovim:
-``` 
-:call mkdir(stdpath('config'),'p')
-```
+    ``` 
+    :call mkdir(stdpath('config'),'p')
+    ```
 1. Call `:PlugInstall` inside neovim to install all the plugins.
 1. Install nodejs in order for the coc.nvim plugin to run.
 1. Install neovim extensions:
-```
-:CocInstall coc-clangd coc-pyright coc-tsserver coc-json
-```
+    ```
+    :CocInstall coc-clangd coc-pyright coc-tsserver coc-json
+    ```
 
