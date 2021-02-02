@@ -74,8 +74,16 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " position. Coc only does snippet and additional edit on confirm.
 if has('patch8.1.1068')
   " Use `complete_info` if your (Neo)Vim version supports it.
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+  " Handles auto-indent and newlines based on language server formatOnType but
+  " does not autocomplete when nothing is selected which is the default
+  " behaviour when using the snippet from coc-pairs README. 
+  inoremap <silent><expr> <cr> 
+      \ pumvisible() ? complete_info()["selected"] != "-1" ? 
+      \ "\<C-y>" : "\<C-g>u\<CR>" : 
+      \ "\<C-g>u<CR>\<c-r>=coc#on_enter()\<CR>"
 else
+  " TODO: Not updated to handle auto-insert of newline and indenting after
+  " formatOnType as shown in the first if-statement.
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
