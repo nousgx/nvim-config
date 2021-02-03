@@ -29,6 +29,6 @@ Configuration for [Neovim](https://github.com/neovim/neovim) documented for easi
 1. Install nodejs in order for the coc.nvim plugin to run.
 1. Install neovim extensions:
     ```
-    :CocInstall coc-clangd coc-pyright coc-tsserver coc-json
+    :CocInstall coc-clangd coc-pyright coc-tsserver coc-json coc-pairs
     ```
 
